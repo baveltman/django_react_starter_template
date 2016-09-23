@@ -9,11 +9,11 @@
             {{questions}}
         </div>
         <div>
-            Count is {{questions.fields}}
+            Count is {{questions.count}}
         </div>
         <ul>
         {% for q in questions.results %}
-            <li>{{ q }}</li>
+            <li>{{ q.question_text }}</li>
         {% endfor %}
         </ul>
     </div>

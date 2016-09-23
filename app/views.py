@@ -17,3 +17,12 @@ def questions_static(request):
         'questions': r.json()
     }
     return render(request, 'static_questions.html', context)
+
+def questions_react(request):
+    """ static questions page, using django's templating system """
+    r = requests.get('http://127.0.0.1:8000/api/v1/questions/')
+    print("questions: {}".format(r.text))
+    context = {
+        'questions': r.content
+    }
+    return render(request, 'react_questions.html', context)

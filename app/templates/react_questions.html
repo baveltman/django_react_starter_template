@@ -1,0 +1,22 @@
+{% load static %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'js/app.bundle.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+{% autoescape off %}
+<!-- Your template contents -->
+
+<!-- The mount point of your app -->
+<div id="app-mountpoint" />
+<script type="text/javascript">
+  // Initialization glue code
+  var props = {{questions}}
+  window.MyApp.init({
+    mount: 'app-mountpoint',
+    props: props
+  });
+</script>
+{% endautoescape %}
+{% endblock %}
